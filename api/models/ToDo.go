@@ -70,7 +70,7 @@ func (t *ToDo) UpdateAToDo(db *gorm.DB) (*ToDo, error) {
 	return t, nil
 }
 
-func (t *ToDo) DeleteATodo(db *gorm.DB) (int64, error) {
+func (t *ToDo) DeleteAToDo(db *gorm.DB) (int64, error) {
 	db = db.Debug().Model(&ToDo{}).Where("id = ?", t.ID).Take(&ToDo{}).Delete(&ToDo{})
 	if db.Error != nil {
 		return 0, db.Error
